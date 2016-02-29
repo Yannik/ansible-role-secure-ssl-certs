@@ -1,0 +1,10 @@
+# Using relative modes to only ever remove privileges and not add them.
+# If this were an absolute mode like 640, it would not be possible
+# to manually set a lower privilege of 600.
+secure_ssl_key_mode: g-wx,o-rwx
+
+secure_ssl_key_group: root
+
+secure_ssl_cert_mode: g-wx,o-wx
+
+secure_ssl_cert_group: root
