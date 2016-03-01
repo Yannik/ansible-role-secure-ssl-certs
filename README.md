@@ -1,6 +1,8 @@
 Description
 =========
 
+[![Build Status](https://travis-ci.org/Yannik/ansible-role-secure-ssl-certs.svg?branch=master)](https://travis-ci.org/Yannik/ansible-role-secure-ssl-certs)
+
 This role automatically secures keys and certificates in `/etc/ssl/`.
 
 Requirements
