@@ -6,7 +6,7 @@
 # gathered by find
 - name: Secure ssl keys
   file: path={{ item }} mode={{ secure_ssl_key_mode }} owner=root group={{ secure_ssl_key_group }}
-  with_items: secure_ssl_keys_result.files|map(attribute='path')|list
+  with_items: "{{ secure_ssl_keys_result.files|map(attribute='path')|list }}"
 
 - name: Find ssl certs 
   find: paths="/etc/ssl" patterns="*.pem,*.crt" recurse=yes file_type=file
@@ -19,5 +19,5 @@
 # see https://github.com/ansible/ansible-modules-core/issues/3027
 - name: Secure ssl certs
   file: path={{ item }} mode={{ secure_ssl_cert_mode }} owner=root group={{ secure_ssl_cert_group }}
-  with_items: secure_ssl_certs_result.files|map(attribute='path')|list
+  with_items: "{{ secure_ssl_certs_result.files|map(attribute='path')|list }}"
   when: item.find("/etc/ssl/certs") != 0
