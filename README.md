@@ -35,7 +35,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: all
       roles:
-         - role: secure-ssl
+         - role: Yannik.secure-ssl
            secure_ssl_key_group: 'ssl-cert'
 
 License
