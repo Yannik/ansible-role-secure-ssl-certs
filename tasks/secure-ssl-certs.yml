@@ -1,5 +1,5 @@
 - name: Find ssl keys
-  find: paths="/etc/ssl/" patterns="*.key" recurse=yes
+  find: paths="/etc/ssl/" patterns="*key*" recurse=yes
   register: secure_ssl_keys_result
 
 # Filter secure_ssl_keys_result.files to avoid messy output of all file attributes
@@ -20,4 +20,4 @@
 - name: Secure ssl certs
   file: path={{ item }} mode={{ secure_ssl_cert_mode }} owner=root group={{ secure_ssl_cert_group }}
   with_items: "{{ secure_ssl_certs_result.files|map(attribute='path')|list }}"
-  when: item.find("/etc/ssl/certs") != 0
+  when: item.find("/etc/ssl/certs") != 0 and item.find("key") == -1
