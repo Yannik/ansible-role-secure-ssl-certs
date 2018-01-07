@@ -1,2 +1,2 @@
-- include: secure-ssl-certs.yml
+- import_tasks: secure-ssl-certs.yml
   tags: secure-ssl-certs
